@@ -19,7 +19,7 @@ public class Garden extends Sprite {
     {
         super(x, y, width, height, Color.GREEN);
         
-        gnome = new Gnome(100, 100, 50, 50);
+        gnome = new Gnome(100, 100, 60, 60, 700, 700);
     }
     
     public void draw(Graphics g)
@@ -64,21 +64,16 @@ public class Garden extends Sprite {
         worms.add(worm);
     }
     
-    private void checkForApplesEaten()
-    {
-        for(int i=0; i<apples.size(); i++)
-        {
+    private void checkForApplesEaten() {
+        for (int i = 0; i < apples.size(); i++) {
             Apple apple = apples.get(i);
-            
-            if(gnome.hit(apple))
-            {
+            if (gnome.hit(apple)) {
                 apples.remove(apple);
-                i --;
-                
+                i--;
                 gnome.grow();
             }
         }
-        
+
         for (int i = 0; i < worms.size(); i++) {
             Worm worm = worms.get(i);
             if (gnome.hit(worm)) {
